@@ -1,0 +1,9 @@
+prefix=/Users/nuodun/Documents/Github/libcurl-Openssl-Zlib/xcode-build-openssl-1.0.2n/armv7
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: OpenSSL
+Description: Secure Sockets Layer and cryptography libraries and tools
+Version: 1.0.2n
+Requires: libssl libcrypto
