@@ -1,13 +1,16 @@
 @echo off & color 0A
 @echo usage:
-@echo 		build.bat   platform
+@echo 		build.bat   platform  asm/no-asm
 @echo 		                platform = 0,32,86,0x86; build x86
 @echo 		                platform = 1,64,0x64,amd64; build amd64
 @echo 		                platform = other; build amd64_x86
-@echo 		                
+@echo 		                asm     	build openssl with asm
+@echo 		                no-asm     build openssl no-asm
+@echo													
 
 set ROOT_DIR=%~dp0
 set platform=%1
+set WITH_ASM=%2
 set OPENSSL_SRC=%~dp0openssl-1.0.2n
 set ZLIB_SRC=%~dp0zlib-1.2.8
 set CURL_SRC=%~dp0curl-7.55.1
@@ -21,6 +24,11 @@ if "%platform%"=="%%a" set platform=x86
 for %%a in (1 64 0x64 amd64) do (
 if "%platform%"=="%%a" set platform=amd64
 )
+
+for %%a in (ASM asm) do (
+if "%WITH_ASM%"=="%%a" (call %ROOT_DIR%asm.bat)
+)
+@echo %PATH%
 set CURL_MACHINE=x86
 set PERL_VC=VC-WIN32
 if "%platform%"=="x86" (
@@ -35,15 +43,17 @@ if "%platform%"=="x86" (
 )
 
 @echo platform=%platform%; PERL_VC=%PERL_VC%
-set OPENSSL_BUILD=%ROOT_DIR%libcurlSslZlib%platform%
+set OPENSSL_BUILD=%ROOT_DIR%libcurlSslZlib_%platform%
+echo %PATH%|findstr /c:"nasm-2.13.02">nul 2>nul&&(set OPENSSL_BUILD=%OPENSSL_BUILD%_asm)||(set OPENSSL_BUILD=%OPENSSL_BUILD%_no_asm)
 @echo OPENSSL_BUILD=%OPENSSL_BUILD%
 IF EXIST %OPENSSL_BUILD% (RD /S /Q %OPENSSL_BUILD%)
 MKDIR %OPENSSL_BUILD% 
 call %VC140_HOME%\vcvarsall.bat %platform%
 @echo build openssl-1.0.2n
 cd /d %OPENSSL_SRC%
-perl  Configure %PERL_VC% no-asm --prefix=%OPENSSL_BUILD%
-call ms\do_ms.bat
+echo %PATH%|findstr /c:"nasm-2.13.02">nul 2>nul&&(perl  Configure %PERL_VC% --prefix=%OPENSSL_BUILD%)||(perl  Configure %PERL_VC% no-asm --prefix=%OPENSSL_BUILD%)
+rem perl  Configure %PERL_VC% no-asm --prefix=%OPENSSL_BUILD%
+echo %PATH%|findstr /c:"nasm-2.13.02">nul 2>nul&&(call ms\do_nasm.bat)||(call ms\do_ms.bat)
 nmake -f ms\nt.mak clean
 nmake -f ms\nt.mak
 nmake -f ms\nt.mak install
