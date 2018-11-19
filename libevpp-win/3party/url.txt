@@ -1,0 +1,11 @@
+args:
+https://github.com/Taywee/args
+
+random:
+https://github.com/effolkronium/random
+
+jsoncpp 1.8.4
+https://github.com/open-source-parsers/jsoncpp
+
+uuid4:
+https://github.com/rxi/uuid4

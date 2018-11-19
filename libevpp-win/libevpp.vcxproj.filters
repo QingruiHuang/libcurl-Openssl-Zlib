@@ -1,0 +1,696 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="glog">
+      <UniqueIdentifier>{5da9e011-2c69-4708-ac50-a16b6e5dc23a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="libevent">
+      <UniqueIdentifier>{dfd36ea7-7746-4a5d-8f3a-e4b1329af59b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="evpp">
+      <UniqueIdentifier>{9b22e5b6-3089-41df-81b5-ad0b519f6741}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="glog\inc">
+      <UniqueIdentifier>{27348f73-d777-4580-9698-e80f2e442488}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="glog\src">
+      <UniqueIdentifier>{3b701e59-8ed0-457e-92f5-19f1fd3d08e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="glog\inc\windows">
+      <UniqueIdentifier>{ff1534e6-5f21-43fc-a801-e9adbab36d3b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="glog\inc\windows\glog">
+      <UniqueIdentifier>{91b3c163-ff8f-4550-adef-2e2e4b3a67f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="glog\src\windows">
+      <UniqueIdentifier>{2b076714-08b8-4458-89ba-fe743cb99dcd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="glog\inc\base">
+      <UniqueIdentifier>{bde24ac1-5c0e-4d33-bba4-0c512088f6eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="libevent\src">
+      <UniqueIdentifier>{4183b431-ba0d-4657-a97d-49d4b9445f78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="libevent\inc">
+      <UniqueIdentifier>{df950777-de67-4fd6-a2c7-8276495bad56}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="libevent\inc\compat">
+      <UniqueIdentifier>{c51776aa-2848-4f0a-942d-ccc469a996c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="libevent\inc\include">
+      <UniqueIdentifier>{4e33b110-9387-471f-9c1b-96109a12f4ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="libevent\inc\WIN32-Code">
+      <UniqueIdentifier>{162a5cd2-13da-4d57-b6a8-c515b2ba2f86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="libevent\inc\compat\sys">
+      <UniqueIdentifier>{1745c7eb-ec3d-4ec9-916e-dd4fccaaa222}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="libevent\inc\WIN32-Code\nmake">
+      <UniqueIdentifier>{35321cd5-1acc-4ecb-aa5e-79b88120b95e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="libevent\inc\WIN32-Code\nmake\event2">
+      <UniqueIdentifier>{4a1f4465-e467-4e75-bd4c-68546451e26e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="libevent\inc\include\event2">
+      <UniqueIdentifier>{7cf9933e-e665-48d0-9cad-4c3961167f0b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="evpp\include">
+      <UniqueIdentifier>{440f2039-4fd0-4d5f-9e6c-3bdd17185b84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="evpp\include\evpp">
+      <UniqueIdentifier>{724ad4be-e3c6-470d-87a0-2fdb96d5e786}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="evpp\include\evpp\http">
+      <UniqueIdentifier>{e162ca44-9570-4525-aadc-749117fcf634}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="evpp\include\evpp\httpc">
+      <UniqueIdentifier>{513c8c39-468c-4d6c-859c-de23d055f848}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="evpp\include\evpp\udp">
+      <UniqueIdentifier>{d5a1e324-2ee5-439c-9a76-78960a8b14e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="evpp\include\evpp\polarssl">
+      <UniqueIdentifier>{0fa156ef-f12f-4af0-982d-b8b3f42a166d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="evpp\include\evpp\xhttp">
+      <UniqueIdentifier>{9f6b0339-bbc7-4e99-90e3-7b20197e75c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="evpp\src">
+      <UniqueIdentifier>{c2805a0b-dc48-4ced-a6f0-5670bc542df2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="evpp\src\http">
+      <UniqueIdentifier>{1e444a44-e6e3-4a70-ae1f-be9d16bf76b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="evpp\src\httpc">
+      <UniqueIdentifier>{e2592e52-f8a4-4561-911f-eec68210a054}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="evpp\src\polarssl">
+      <UniqueIdentifier>{3806e6d3-7b82-4016-a31c-ca31a15ec738}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="evpp\src\udp">
+      <UniqueIdentifier>{16694160-ba6a-4b1e-a9a9-e442d8558fdd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="evpp\src\xhttp">
+      <UniqueIdentifier>{99fe43f1-ae23-401e-9196-82b920b2c3e9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="vcsource\glog\utilities.h">
+      <Filter>glog\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\glog\windows\config.h">
+      <Filter>glog\inc\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\glog\windows\port.h">
+      <Filter>glog\inc\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\glog\windows\glog\log_severity.h">
+      <Filter>glog\inc\windows\glog</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\glog\windows\glog\logging.h">
+      <Filter>glog\inc\windows\glog</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\glog\windows\glog\raw_logging.h">
+      <Filter>glog\inc\windows\glog</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\glog\windows\glog\stl_logging.h">
+      <Filter>glog\inc\windows\glog</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\glog\windows\glog\vlog_is_on.h">
+      <Filter>glog\inc\windows\glog</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\glog\base\commandlineflags.h">
+      <Filter>glog\inc\base</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\glog\base\googleinit.h">
+      <Filter>glog\inc\base</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\glog\base\mutex.h">
+      <Filter>glog\inc\base</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\libevent\bufferevent-internal.h">
+      <Filter>libevent\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\libevent\changelist-internal.h">
+      <Filter>libevent\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\libevent\defer-internal.h">
+      <Filter>libevent\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\libevent\evbuffer-internal.h">
+      <Filter>libevent\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\libevent\event-internal.h">
+      <Filter>libevent\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\libevent\evmap-internal.h">
+      <Filter>libevent\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\libevent\evrpc-internal.h">
+      <Filter>libevent\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\libevent\evsignal-internal.h">
+      <Filter>libevent\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\libevent\evthread-internal.h">
+      <Filter>libevent\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\libevent\ht-internal.h">
+      <Filter>libevent\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\libevent\http-internal.h">
+      <Filter>libevent\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\libevent\iocp-internal.h">
+      <Filter>libevent\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\libevent\ipv6-internal.h">
+      <Filter>libevent\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\libevent\log-internal.h">
+      <Filter>libevent\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\libevent\minheap-internal.h">
+      <Filter>libevent\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\libevent\mm-internal.h">
+      <Filter>libevent\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\libevent\ratelim-internal.h">
+      <Filter>libevent\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\libevent\strlcpy-internal.h">
+      <Filter>libevent\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\libevent\time-internal.h">
+      <Filter>libevent\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\libevent\util-internal.h">
+      <Filter>libevent\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\libevent\compat\sys\queue.h">
+      <Filter>libevent\inc\compat\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\libevent\WIN32-Code\nmake\event2\event-config.h">
+      <Filter>libevent\inc\WIN32-Code\nmake\event2</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\libevent\WIN32-Code\nmake\evconfig-private.h">
+      <Filter>libevent\inc\WIN32-Code\nmake</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\libevent\WIN32-Code\tree.h">
+      <Filter>libevent\inc\WIN32-Code</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\libevent\include\evdns.h">
+      <Filter>libevent\inc\include</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\libevent\include\event.h">
+      <Filter>libevent\inc\include</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\libevent\include\evhttp.h">
+      <Filter>libevent\inc\include</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\libevent\include\evrpc.h">
+      <Filter>libevent\inc\include</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\libevent\include\evutil.h">
+      <Filter>libevent\inc\include</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\libevent\include\event2\buffer.h">
+      <Filter>libevent\inc\include\event2</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\libevent\include\event2\buffer_compat.h">
+      <Filter>libevent\inc\include\event2</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\libevent\include\event2\bufferevent.h">
+      <Filter>libevent\inc\include\event2</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\libevent\include\event2\bufferevent_compat.h">
+      <Filter>libevent\inc\include\event2</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\libevent\include\event2\bufferevent_ssl.h">
+      <Filter>libevent\inc\include\event2</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\libevent\include\event2\bufferevent_struct.h">
+      <Filter>libevent\inc\include\event2</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\libevent\include\event2\dns.h">
+      <Filter>libevent\inc\include\event2</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\libevent\include\event2\dns_compat.h">
+      <Filter>libevent\inc\include\event2</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\libevent\include\event2\dns_struct.h">
+      <Filter>libevent\inc\include\event2</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\libevent\include\event2\event.h">
+      <Filter>libevent\inc\include\event2</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\libevent\include\event2\event_compat.h">
+      <Filter>libevent\inc\include\event2</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\libevent\include\event2\event_struct.h">
+      <Filter>libevent\inc\include\event2</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\libevent\include\event2\http.h">
+      <Filter>libevent\inc\include\event2</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\libevent\include\event2\http_compat.h">
+      <Filter>libevent\inc\include\event2</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\libevent\include\event2\http_struct.h">
+      <Filter>libevent\inc\include\event2</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\libevent\include\event2\keyvalq_struct.h">
+      <Filter>libevent\inc\include\event2</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\libevent\include\event2\listener.h">
+      <Filter>libevent\inc\include\event2</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\libevent\include\event2\rpc.h">
+      <Filter>libevent\inc\include\event2</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\libevent\include\event2\rpc_compat.h">
+      <Filter>libevent\inc\include\event2</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\libevent\include\event2\rpc_struct.h">
+      <Filter>libevent\inc\include\event2</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\libevent\include\event2\tag.h">
+      <Filter>libevent\inc\include\event2</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\libevent\include\event2\tag_compat.h">
+      <Filter>libevent\inc\include\event2</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\libevent\include\event2\thread.h">
+      <Filter>libevent\inc\include\event2</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\libevent\include\event2\util.h">
+      <Filter>libevent\inc\include\event2</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\libevent\include\event2\visibility.h">
+      <Filter>libevent\inc\include\event2</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\any.h">
+      <Filter>evpp\include\evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\buffer.h">
+      <Filter>evpp\include\evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\connector.h">
+      <Filter>evpp\include\evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\dns_resolver.h">
+      <Filter>evpp\include\evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\duration.h">
+      <Filter>evpp\include\evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\duration.inl.h">
+      <Filter>evpp\include\evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\endian.h">
+      <Filter>evpp\include\evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\event_loop.h">
+      <Filter>evpp\include\evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\event_loop_thread.h">
+      <Filter>evpp\include\evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\event_loop_thread_pool.h">
+      <Filter>evpp\include\evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\event_watcher.h">
+      <Filter>evpp\include\evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\fd_channel.h">
+      <Filter>evpp\include\evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\gettimeofday.h">
+      <Filter>evpp\include\evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\inner_pre.h">
+      <Filter>evpp\include\evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\invoke_timer.h">
+      <Filter>evpp\include\evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\libevent.h">
+      <Filter>evpp\include\evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\listener.h">
+      <Filter>evpp\include\evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\logging.h">
+      <Filter>evpp\include\evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\memmem.h">
+      <Filter>evpp\include\evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\platform_config.h">
+      <Filter>evpp\include\evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\server_status.h">
+      <Filter>evpp\include\evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\slice.h">
+      <Filter>evpp\include\evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\sockets.h">
+      <Filter>evpp\include\evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\stringutil.h">
+      <Filter>evpp\include\evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\sys_addrinfo.h">
+      <Filter>evpp\include\evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\sys_sockets.h">
+      <Filter>evpp\include\evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\tcp_callbacks.h">
+      <Filter>evpp\include\evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\tcp_client.h">
+      <Filter>evpp\include\evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\tcp_conn.h">
+      <Filter>evpp\include\evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\tcp_server.h">
+      <Filter>evpp\include\evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\thread_dispatch_policy.h">
+      <Filter>evpp\include\evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\timestamp.h">
+      <Filter>evpp\include\evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\timestamp.inl.h">
+      <Filter>evpp\include\evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\utility.h">
+      <Filter>evpp\include\evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\windows_port.h">
+      <Filter>evpp\include\evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\http\context.h">
+      <Filter>evpp\include\evpp\http</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\http\http_server.h">
+      <Filter>evpp\include\evpp\http</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\http\service.h">
+      <Filter>evpp\include\evpp\http</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\http\stats.h">
+      <Filter>evpp\include\evpp\http</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\httpc\conn.h">
+      <Filter>evpp\include\evpp\httpc</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\httpc\conn_pool.h">
+      <Filter>evpp\include\evpp\httpc</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\httpc\request.h">
+      <Filter>evpp\include\evpp\httpc</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\httpc\response.h">
+      <Filter>evpp\include\evpp\httpc</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\httpc\ssl.h">
+      <Filter>evpp\include\evpp\httpc</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\httpc\url_parser.h">
+      <Filter>evpp\include\evpp\httpc</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\polarssl\base64.h">
+      <Filter>evpp\include\evpp\polarssl</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\polarssl\md5.h">
+      <Filter>evpp\include\evpp\polarssl</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\polarssl\sha1.h">
+      <Filter>evpp\include\evpp\polarssl</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\udp\sync_udp_client.h">
+      <Filter>evpp\include\evpp\udp</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\udp\udp_message.h">
+      <Filter>evpp\include\evpp\udp</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\udp\udp_server.h">
+      <Filter>evpp\include\evpp\udp</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\xhttp\http_parser.h">
+      <Filter>evpp\include\evpp\xhttp</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\xhttp\httpconnection.h">
+      <Filter>evpp\include\evpp\xhttp</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\xhttp\httpparser.h">
+      <Filter>evpp\include\evpp\xhttp</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\xhttp\httprequest.h">
+      <Filter>evpp\include\evpp\xhttp</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\xhttp\httpresponse.h">
+      <Filter>evpp\include\evpp\xhttp</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\xhttp\httpserver.h">
+      <Filter>evpp\include\evpp\xhttp</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\xhttp\httputil.h">
+      <Filter>evpp\include\evpp\xhttp</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\xhttp\wsconnection.h">
+      <Filter>evpp\include\evpp\xhttp</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\xhttp\wsutil.h">
+      <Filter>evpp\include\evpp\xhttp</Filter>
+    </ClInclude>
+    <ClInclude Include="vcsource\evpp\include\evpp\xhttp\xhttp.h">
+      <Filter>evpp\include\evpp\xhttp</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="vcsource\glog\logging.cc">
+      <Filter>glog\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\glog\raw_logging.cc">
+      <Filter>glog\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\glog\utilities.cc">
+      <Filter>glog\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\glog\vlog_is_on.cc">
+      <Filter>glog\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\glog\windows\port.cc">
+      <Filter>glog\src\windows</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\libevent\buffer.c">
+      <Filter>libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\libevent\buffer_iocp.c">
+      <Filter>libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\libevent\bufferevent.c">
+      <Filter>libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\libevent\bufferevent_async.c">
+      <Filter>libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\libevent\bufferevent_filter.c">
+      <Filter>libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\libevent\bufferevent_pair.c">
+      <Filter>libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\libevent\bufferevent_ratelim.c">
+      <Filter>libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\libevent\bufferevent_sock.c">
+      <Filter>libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\libevent\evdns.c">
+      <Filter>libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\libevent\event.c">
+      <Filter>libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\libevent\event_iocp.c">
+      <Filter>libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\libevent\event_tagging.c">
+      <Filter>libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\libevent\evmap.c">
+      <Filter>libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\libevent\evport.c">
+      <Filter>libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\libevent\evrpc.c">
+      <Filter>libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\libevent\evthread.c">
+      <Filter>libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\libevent\evthread_win32.c">
+      <Filter>libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\libevent\evutil.c">
+      <Filter>libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\libevent\evutil_rand.c">
+      <Filter>libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\libevent\evutil_time.c">
+      <Filter>libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\libevent\http.c">
+      <Filter>libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\libevent\listener.c">
+      <Filter>libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\libevent\log.c">
+      <Filter>libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\libevent\signal.c">
+      <Filter>libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\libevent\strlcpy.c">
+      <Filter>libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\libevent\win32select.c">
+      <Filter>libevent\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\evpp\src\buffer.cc">
+      <Filter>evpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\evpp\src\connector.cc">
+      <Filter>evpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\evpp\src\dns_resolver.cc">
+      <Filter>evpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\evpp\src\duration.cc">
+      <Filter>evpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\evpp\src\event_loop.cc">
+      <Filter>evpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\evpp\src\event_loop_thread.cc">
+      <Filter>evpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\evpp\src\event_loop_thread_pool.cc">
+      <Filter>evpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\evpp\src\event_watcher.cc">
+      <Filter>evpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\evpp\src\fd_channel.cc">
+      <Filter>evpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\evpp\src\inner_pre.cc">
+      <Filter>evpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\evpp\src\invoke_timer.cc">
+      <Filter>evpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\evpp\src\libevent.cc">
+      <Filter>evpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\evpp\src\listener.cc">
+      <Filter>evpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\evpp\src\sockets.cc">
+      <Filter>evpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\evpp\src\stringutil.cc">
+      <Filter>evpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\evpp\src\tcp_client.cc">
+      <Filter>evpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\evpp\src\tcp_conn.cc">
+      <Filter>evpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\evpp\src\tcp_server.cc">
+      <Filter>evpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\evpp\src\http\context.cc">
+      <Filter>evpp\src\http</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\evpp\src\http\http_server.cc">
+      <Filter>evpp\src\http</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\evpp\src\http\service.cc">
+      <Filter>evpp\src\http</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\evpp\src\httpc\conn.cc">
+      <Filter>evpp\src\httpc</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\evpp\src\httpc\conn_pool.cc">
+      <Filter>evpp\src\httpc</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\evpp\src\httpc\request.cc">
+      <Filter>evpp\src\httpc</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\evpp\src\httpc\response.cc">
+      <Filter>evpp\src\httpc</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\evpp\src\httpc\ssl.cc">
+      <Filter>evpp\src\httpc</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\evpp\src\httpc\url_parser.cc">
+      <Filter>evpp\src\httpc</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\evpp\src\udp\sync_udp_client.cc">
+      <Filter>evpp\src\udp</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\evpp\src\udp\udp_server.cc">
+      <Filter>evpp\src\udp</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\evpp\src\polarssl\base64.c">
+      <Filter>evpp\src\polarssl</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\evpp\src\polarssl\md5.c">
+      <Filter>evpp\src\polarssl</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\evpp\src\polarssl\sha1.c">
+      <Filter>evpp\src\polarssl</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\evpp\src\xhttp\http_parser.c">
+      <Filter>evpp\src\xhttp</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\evpp\src\xhttp\httpconnection.cc">
+      <Filter>evpp\src\xhttp</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\evpp\src\xhttp\httpparser.cc">
+      <Filter>evpp\src\xhttp</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\evpp\src\xhttp\httprequest.cc">
+      <Filter>evpp\src\xhttp</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\evpp\src\xhttp\httpresponse.cc">
+      <Filter>evpp\src\xhttp</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\evpp\src\xhttp\httpserver.cc">
+      <Filter>evpp\src\xhttp</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\evpp\src\xhttp\httputil.cc">
+      <Filter>evpp\src\xhttp</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\evpp\src\xhttp\wsconnection.cc">
+      <Filter>evpp\src\xhttp</Filter>
+    </ClCompile>
+    <ClCompile Include="vcsource\evpp\src\xhttp\wsutil.cc">
+      <Filter>evpp\src\xhttp</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

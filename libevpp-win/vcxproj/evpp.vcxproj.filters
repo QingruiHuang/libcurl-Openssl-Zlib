@@ -1,0 +1,353 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="inc">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="inc\http">
+      <UniqueIdentifier>{296aba8c-3587-4c63-a2c0-60d56f7fa3ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="inc\httpc">
+      <UniqueIdentifier>{8a79b5b9-e6dc-42c7-a55a-19c4aefe643d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="inc\udp">
+      <UniqueIdentifier>{0d740916-17a2-4399-889c-7953e9f8a513}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="inc\xhttp">
+      <UniqueIdentifier>{7fbb3e5b-90f6-4023-a94c-2da44660b06c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\http">
+      <UniqueIdentifier>{371413fa-e4d2-4a00-a3ac-ab20da6e0e9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\httpc">
+      <UniqueIdentifier>{9927076a-e2de-4978-9e71-213040f6a2e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\xhttp">
+      <UniqueIdentifier>{77a30392-9072-4c77-b189-0b1f35dd1d3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\udp">
+      <UniqueIdentifier>{64795201-20fe-427c-a22f-faec0d5bd7f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="inc\polarssl">
+      <UniqueIdentifier>{9e8da58b-3729-4c59-bdfb-709509ed0ffa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\polarssl">
+      <UniqueIdentifier>{3f6e8459-83cc-48c5-bda3-b857f35d0a11}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\vcbuild\include\evpp\http\context.h">
+      <Filter>inc\http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\http\http_server.h">
+      <Filter>inc\http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\http\service.h">
+      <Filter>inc\http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\http\stats.h">
+      <Filter>inc\http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\httpc\conn.h">
+      <Filter>inc\httpc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\httpc\conn_pool.h">
+      <Filter>inc\httpc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\httpc\request.h">
+      <Filter>inc\httpc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\httpc\response.h">
+      <Filter>inc\httpc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\httpc\ssl.h">
+      <Filter>inc\httpc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\httpc\url_parser.h">
+      <Filter>inc\httpc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\xhttp\http_parser.h">
+      <Filter>inc\xhttp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\xhttp\httpconnection.h">
+      <Filter>inc\xhttp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\xhttp\httpparser.h">
+      <Filter>inc\xhttp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\xhttp\httprequest.h">
+      <Filter>inc\xhttp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\xhttp\httpresponse.h">
+      <Filter>inc\xhttp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\xhttp\httpserver.h">
+      <Filter>inc\xhttp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\xhttp\httputil.h">
+      <Filter>inc\xhttp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\xhttp\wsconnection.h">
+      <Filter>inc\xhttp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\xhttp\wsutil.h">
+      <Filter>inc\xhttp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\xhttp\xhttp.h">
+      <Filter>inc\xhttp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\udp\sync_udp_client.h">
+      <Filter>inc\udp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\udp\udp_message.h">
+      <Filter>inc\udp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\udp\udp_server.h">
+      <Filter>inc\udp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\any.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\buffer.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\connector.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\dns_resolver.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\duration.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\duration.inl.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\event_loop.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\event_loop_thread.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\event_loop_thread_pool.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\event_watcher.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\fd_channel.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\gettimeofday.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\inner_pre.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\invoke_timer.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\libevent.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\listener.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\logging.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\memmem.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\platform_config.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\server_status.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\slice.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\sockets.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\stringutil.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\sys_addrinfo.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\sys_sockets.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\tcp_callbacks.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\tcp_client.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\tcp_conn.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\tcp_server.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\thread_dispatch_policy.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\timestamp.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\timestamp.inl.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\utility.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\windows_port.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\endian.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\polarssl\base64.h">
+      <Filter>inc\polarssl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\polarssl\md5.h">
+      <Filter>inc\polarssl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcbuild\include\evpp\polarssl\sha1.h">
+      <Filter>inc\polarssl</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\vcbuild\evpp-src\xhttp\httpconnection.cc">
+      <Filter>src\xhttp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\vcbuild\evpp-src\xhttp\httpparser.cc">
+      <Filter>src\xhttp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\vcbuild\evpp-src\xhttp\httprequest.cc">
+      <Filter>src\xhttp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\vcbuild\evpp-src\xhttp\httpresponse.cc">
+      <Filter>src\xhttp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\vcbuild\evpp-src\xhttp\httpserver.cc">
+      <Filter>src\xhttp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\vcbuild\evpp-src\xhttp\httputil.cc">
+      <Filter>src\xhttp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\vcbuild\evpp-src\xhttp\wsconnection.cc">
+      <Filter>src\xhttp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\vcbuild\evpp-src\xhttp\wsutil.cc">
+      <Filter>src\xhttp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\vcbuild\evpp-src\udp\sync_udp_client.cc">
+      <Filter>src\udp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\vcbuild\evpp-src\udp\udp_server.cc">
+      <Filter>src\udp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\vcbuild\evpp-src\httpc\conn.cc">
+      <Filter>src\httpc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\vcbuild\evpp-src\httpc\conn_pool.cc">
+      <Filter>src\httpc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\vcbuild\evpp-src\httpc\request.cc">
+      <Filter>src\httpc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\vcbuild\evpp-src\httpc\response.cc">
+      <Filter>src\httpc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\vcbuild\evpp-src\httpc\ssl.cc">
+      <Filter>src\httpc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\vcbuild\evpp-src\httpc\url_parser.cc">
+      <Filter>src\httpc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\vcbuild\evpp-src\http\context.cc">
+      <Filter>src\http</Filter>
+    </ClCompile>
+    <ClCompile Include="..\vcbuild\evpp-src\http\http_server.cc">
+      <Filter>src\http</Filter>
+    </ClCompile>
+    <ClCompile Include="..\vcbuild\evpp-src\http\service.cc">
+      <Filter>src\http</Filter>
+    </ClCompile>
+    <ClCompile Include="..\vcbuild\evpp-src\buffer.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\vcbuild\evpp-src\connector.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\vcbuild\evpp-src\dns_resolver.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\vcbuild\evpp-src\duration.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\vcbuild\evpp-src\event_loop.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\vcbuild\evpp-src\event_loop_thread.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\vcbuild\evpp-src\event_loop_thread_pool.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\vcbuild\evpp-src\event_watcher.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\vcbuild\evpp-src\fd_channel.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\vcbuild\evpp-src\inner_pre.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\vcbuild\evpp-src\invoke_timer.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\vcbuild\evpp-src\libevent.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\vcbuild\evpp-src\listener.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\vcbuild\evpp-src\sockets.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\vcbuild\evpp-src\stringutil.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\vcbuild\evpp-src\tcp_client.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\vcbuild\evpp-src\tcp_conn.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\vcbuild\evpp-src\tcp_server.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\vcbuild\evpp-src\polarssl\base64.c">
+      <Filter>src\polarssl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\vcbuild\evpp-src\polarssl\md5.c">
+      <Filter>src\polarssl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\vcbuild\evpp-src\polarssl\sha1.c">
+      <Filter>src\polarssl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\vcbuild\evpp-src\xhttp\http_parser.c">
+      <Filter>src\xhttp</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

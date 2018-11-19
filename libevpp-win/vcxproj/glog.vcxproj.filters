@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="inc">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="src\windows">
+      <UniqueIdentifier>{a93cbe26-7d44-4f5b-ac6e-bbb4bc7644e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="inc\windows">
+      <UniqueIdentifier>{82d9ec04-1e64-4c4d-a911-05c7e2e21b79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="inc\windows\glog">
+      <UniqueIdentifier>{693a6137-0b0e-4fd7-8b86-8083c7b34954}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\glog-0.3.5\src\logging.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\glog-0.3.5\src\raw_logging.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\glog-0.3.5\src\utilities.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\glog-0.3.5\src\vlog_is_on.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\glog-0.3.5\src\windows\port.cc">
+      <Filter>src\windows</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\glog-0.3.5\src\utilities.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\glog-0.3.5\src\windows\config.h">
+      <Filter>inc\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\glog-0.3.5\src\windows\port.h">
+      <Filter>inc\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\glog-0.3.5\src\windows\glog\log_severity.h">
+      <Filter>inc\windows\glog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\glog-0.3.5\src\windows\glog\logging.h">
+      <Filter>inc\windows\glog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\glog-0.3.5\src\windows\glog\raw_logging.h">
+      <Filter>inc\windows\glog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\glog-0.3.5\src\windows\glog\stl_logging.h">
+      <Filter>inc\windows\glog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\glog-0.3.5\src\windows\glog\vlog_is_on.h">
+      <Filter>inc\windows\glog</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

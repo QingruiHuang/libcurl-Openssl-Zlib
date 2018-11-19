@@ -1,0 +1,23 @@
+set SRC_FROM=evpp-redfox1999
+set ROOT_DIR=%~dp0
+set TARGET_DIR=vcbuild
+set TARGET_DIR_INC=include
+set EVPP=evpp
+set EVPP_SRC=evpp-src
+cd %ROOT_DIR%\..
+MKDIR %TARGET_DIR%
+cd .\%TARGET_DIR%
+MKDIR %EVPP_SRC%
+MKDIR %TARGET_DIR_INC%
+cd .\%TARGET_DIR_INC%
+MKDIR %EVPP%
+cd %ROOT_DIR%\..
+
+XCOPY /S /Y .\%SRC_FROM%\%EVPP%\*.h  .\%TARGET_DIR%\%TARGET_DIR_INC%\%EVPP%\
+XCOPY /S /Y .\%SRC_FROM%\%EVPP%\*.cc  .\%TARGET_DIR%\%EVPP_SRC%\
+XCOPY /S /Y .\%SRC_FROM%\%EVPP%\*.c  .\%TARGET_DIR%\%EVPP_SRC%\
+
+cd %ROOT_DIR%
+XCOPY /S /Y .\%EVPP%\*.h  ..\%TARGET_DIR%\%TARGET_DIR_INC%\%EVPP%\
+XCOPY /S /Y .\%EVPP%\xhttp\*.cc  ..\%TARGET_DIR%\%EVPP_SRC%\xhttp\
+XCOPY /S /Y .\%EVPP%\*.cc  ..\%TARGET_DIR%\%EVPP_SRC%\
