@@ -331,3 +331,9 @@ ASALocalRun/
 
 # Local History for Visual Studio
 .localhistory/
+nghttp2-build
+curl-7.55.1
+openssl-*
+cpr-build
+libcurlSslZlib*
+zlib-*
