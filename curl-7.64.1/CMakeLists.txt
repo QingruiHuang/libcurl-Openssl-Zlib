@@ -205,7 +205,7 @@ if(ENABLE_IPV6 AND NOT WIN32)
 endif()
 
 curl_nroff_check()
-find_package(Perl)
+# find_package(Perl)
 
 cmake_dependent_option(ENABLE_MANUAL "to provide the built-in manual"
     ON "NROFF_USEFUL;PERL_FOUND"
@@ -1129,6 +1129,27 @@ if(CURL_WERROR)
   endif()
 endif()
 
+# https://blog.csdn.net/frank_liuxing/article/details/74010939 
+if(CMAKE_C_COMPILER_ID MATCHES "MSVC")
+  set(CMAKE_C_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_RELEASE} /MT")
+  set(CMAKE_C_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_DEBUG} /MTd")
+  set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /MT")
+  set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /MTd")
+endif()
+if (MSVC)
+    set(CompilerFlags
+        CMAKE_CXX_FLAGS
+        CMAKE_CXX_FLAGS_DEBUG
+        CMAKE_CXX_FLAGS_RELEASE
+        CMAKE_C_FLAGS
+        CMAKE_C_FLAGS_DEBUG
+        CMAKE_C_FLAGS_RELEASE
+        )
+    foreach(CompilerFlag ${CompilerFlags})
+        string(REPLACE "/MD" "/MT" ${CompilerFlag} "${${CompilerFlag}}")
+    endforeach()
+endif(MSVC)
+
 # Ugly (but functional) way to include "Makefile.inc" by transforming it (= regenerate it).
 function(transform_makefile_inc INPUT_FILE OUTPUT_FILE)
   file(READ ${INPUT_FILE} MAKEFILE_INC_TEXT)
@@ -1163,10 +1184,10 @@ if(BUILD_CURL_EXE)
   add_subdirectory(src)
 endif()
 
-include(CTest)
-if(BUILD_TESTING)
-  add_subdirectory(tests)
-endif()
+#include(CTest)
+#if(BUILD_TESTING)
+#  add_subdirectory(tests)
+#endif()
 
 # Helper to populate a list (_items) with a label when conditions (the remaining
 # args) are satisfied

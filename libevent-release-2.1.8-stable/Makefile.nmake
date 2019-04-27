@@ -27,7 +27,14 @@ CFLAGS=$(CFLAGS) /Ox /W3 /wd4996 /nologo
 
 # XXXX have a debug mode
 
+!IF "$(mode)"=="release"
+CFLAGS  = $(CFLAGS) /MT /O2 /Oy- /Zi
 LIBFLAGS=/nologo
+!ELSE
+CFLAGS  = $(CFLAGS) /MTd /O2 /Oy- /Zi
+LIBFLAGS=
+!ENDIF
+
 
 CORE_OBJS=event.obj buffer.obj bufferevent.obj bufferevent_sock.obj \
 	bufferevent_pair.obj listener.obj evmap.obj log.obj evutil.obj \

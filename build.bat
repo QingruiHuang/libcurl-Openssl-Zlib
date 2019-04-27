@@ -20,9 +20,10 @@ set JANSSON_ROOT=%~dp0jansson-2.12
 set JANSSON_BUILD_DIR=%~dp0jansson-2.12-build
 set NGHTTP2_SRC=%~dp0nghttp2
 set NGHTTP2_BUILD_DIR=%~dp0nghttp2-build
-set CURL_SRC=%~dp0curl-7.55.1
+set CURL_SRC=%~dp0curl-7.64.1
 set LIBEVENT_SRC=%~dp0libevent-release-2.1.8-stable
-set CURL_BUILDS=%~dp0curl-7.55.1\builds
+set LIBEVENT_BUILD_DIR=%~dp0libevent-build
+set CURL_BUILDS=%~dp0curl-7.64.1\builds
 set CPR_ROOT=%~dp0cpr
 set CPR_BUILD_DIR=%~dp0cpr-build
 set BUILD_OUT=
@@ -149,9 +150,18 @@ if "%BUILD_MODE%"=="release" (
 )
 
 
+@echo build libevent-2.1.8-stable
+cd /d %ROOT_DIR%
+IF EXIST %LIBEVENT_BUILD_DIR% (RD /S /Q %LIBEVENT_BUILD_DIR%)
+MKDIR %LIBEVENT_BUILD_DIR% 
+cd /d %LIBEVENT_BUILD_DIR%
+cmake -DVISUAL_STUDIO=2017 -DOPENSSL_DIR=%BUILD_OUT% -DCMAKE_BUILD_TYPE=%CMAKE_BUILD_TYPE% -DCMAKE_INSTALL_PREFIX=%BUILD_OUT% -G "NMake Makefiles" %LIBEVENT_SRC%
+nmake
+nmake install
+
 
 @echo copy ZLIB sdk
-IF EXIST %CURL_BUILDS% (RD /S /Q %CURL_BUILDS%)
+
 XCOPY /Y %ZLIB_SRC%\zlib.h %BUILD_OUT%
 XCOPY /Y %ZLIB_SRC%\zconf.h %BUILD_OUT%
 XCOPY /Y %ZLIB_SRC%\zlib.lib %BUILD_OUT%
@@ -187,7 +197,8 @@ set IS_DEBUG=yes
 if "%BUILD_MODE%"=="release" (
 	set IS_DEBUG=no
 )
-@echo build curl-7.55.1  RTLIBCFG=static mode=static MACHINE=%CURL_MACHINE% VC=15 WITH_DEVEL=%BUILD_OUT% WITH_SSL=static WITH_ZLIB=static ENABLE_SSPI=no ENABLE_IPV6=yes DEBUG=%IS_DEBUG% WITH_NGHTTP2=static
+@echo build curl-7.64.1  RTLIBCFG=static mode=static MACHINE=%CURL_MACHINE% VC=15 WITH_DEVEL=%BUILD_OUT% WITH_SSL=static WITH_ZLIB=static ENABLE_SSPI=no ENABLE_IPV6=yes DEBUG=%IS_DEBUG% WITH_NGHTTP2=static
+IF EXIST %CURL_BUILDS% (RD /S /Q %CURL_BUILDS%)
 cd /d %CURL_SRC%\winbuild
 nmake /f Makefile.vc RTLIBCFG=static mode=static MACHINE=%CURL_MACHINE% VC=15 WITH_DEVEL=%BUILD_OUT% WITH_SSL=static WITH_ZLIB=static ENABLE_SSPI=no ENABLE_IPV6=yes DEBUG=%IS_DEBUG% WITH_NGHTTP2=static
 cd /d %CURL_BUILDS%
@@ -211,7 +222,7 @@ cd /d %ROOT_DIR%
 IF EXIST %CPR_BUILD_DIR% (RD /S /Q %CPR_BUILD_DIR%)
 MKDIR %CPR_BUILD_DIR% 
 cd /d %CPR_BUILD_DIR%
-cmake -DVISUAL_STUDIO=2017 -DUSE_SYSTEM_CURL=YES -DBUILD_CPR_TESTS=NO -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=%BUILD_OUT% -G "NMake Makefiles" %CPR_ROOT%
+cmake -DVISUAL_STUDIO=2017 -DCMAKE_USE_OPENSSL=YES -DUSE_SYSTEM_CURL=YES -DBUILD_CPR_TESTS=NO -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=%BUILD_OUT% -G "NMake Makefiles" %CPR_ROOT%
 nmake
 @echo copy cpr sdk
 XCOPY /S /Y %CPR_ROOT%\include\*.h %BUILD_OUT%\include
