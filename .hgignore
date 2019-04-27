@@ -12,6 +12,7 @@ out/*
 windll/*
 LinuxSo/*
 Listings/*
+openssl*/*
 /captures
 projectFilesBackup/*
 .gitignore
