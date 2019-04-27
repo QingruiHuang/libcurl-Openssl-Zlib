@@ -27,9 +27,12 @@ LD = link
 AR = lib
 RC = rc
 #debug
-#CFLAGS = -nologo -MDd -W3 -Od -Oy- -ZI -Fd"zlib" $(LOC)
+!IF "$(mode)"=="release"
+CFLAGS  = -nologo -MT -W3 -O2 -Oy- -Zi -Fd"zlib" $(LOC)
+!ELSE
+CFLAGS = -MTd -W3 -Od -Oy- -ZI -Fd"zlib" $(LOC)
 #release
-CFLAGS  = -nologo -MD -W3 -O2 -Oy- -Zi -Fd"zlib" $(LOC)
+!ENDIF
 WFLAGS  = -D_CRT_SECURE_NO_DEPRECATE -D_CRT_NONSTDC_NO_DEPRECATE
 ASFLAGS = -coff -Zi $(LOC)
 LDFLAGS = -nologo -debug -incremental:no -opt:ref

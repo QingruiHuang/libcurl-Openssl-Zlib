@@ -46,13 +46,6 @@ for %%a in (1 64 x64 amd64) do (
 if "%platform%"=="%%a" set platform=amd64
 )
 
-if "%WITH_ASM%"=="asm" (
-	call %ROOT_DIR%asm.bat
-) else (
-	if "%WITH_ASM%"=="ASM" (call %ROOT_DIR%asm.bat) else (set WITH_ASM=no-asm)
-	
-)
-
 @echo %PATH%
 set CURL_MACHINE=x86
 set CURL_DEBUG=no
@@ -82,6 +75,22 @@ if "%platform%"=="x86" (
 	)
 )
 
+if "%WITH_ASM%"=="asm" (
+	if "%platform%"=="x86" (
+		call %ROOT_DIR%asmwin32.bat
+	) else (
+		call %ROOT_DIR%asmwin64.bat
+	)
+) else (
+	if "%WITH_ASM%"=="ASM" (
+		if "%platform%"=="x86" (
+			call %ROOT_DIR%asmwin32.bat
+		) else (
+			call %ROOT_DIR%asmwin64.bat
+		)
+	) else (set WITH_ASM=no-asm)
+)
+
 set BUILD_OUT=%ROOT_DIR%libcurlSslZlibCpr_%platform%
 echo %PATH%|findstr /c:"nasm-2.13.02">nul 2>nul&&(set BUILD_OUT=%BUILD_OUT%_asm)||(set BUILD_OUT=%BUILD_OUT%_no_asm)
 if "%BUILD_MODE%"=="release" (
@@ -95,9 +104,31 @@ MKDIR %BUILD_OUT%
 call %VC150_HOME%\vcvarsall.bat %platform%
 @echo build openssl-1.0.2n %platform% %PERL_VC% %WITH_ASM%
 cd /d %OPENSSL_SRC%
-echo %PATH%|findstr /c:"nasm-2.13.02">nul 2>nul&&(perl  Configure %PERL_VC% --prefix=%BUILD_OUT%)||(perl  Configure %PERL_VC% no-asm --prefix=%BUILD_OUT%)
+set SSL_DO_BAT=do_ms.bat
+if "%platform%"=="x86" (
+	if "%WITH_ASM%"=="asm" (
+		set SSL_DO_BAT=do_nasm.bat
+	)
+) else (
+	if "%WITH_ASM%"=="asm" (
+		set SSL_DO_BAT=do_win64a.bat
+	) else {
+		set SSL_DO_BAT=do_win64i.bat
+	}
+)
+set ASM=nasm
+rem echo %PATH%|findstr /c:"nasm-2.13.02">nul 2>nul&&(perl  Configure %PERL_VC% --prefix=%BUILD_OUT%)||(perl  Configure %PERL_VC% no-asm --prefix=%BUILD_OUT%)
 rem perl  Configure %PERL_VC% no-asm --prefix=%BUILD_OUT%
-echo %PATH%|findstr /c:"nasm-2.13.02">nul 2>nul&&(call ms\do_nasm.bat)||(call ms\do_ms.bat)
+rem echo %PATH%|findstr /c:"nasm-2.13.02">nul 2>nul&&(call ms\do_nasm.bat)||(call ms\do_ms.bat)
+if "%WITH_ASM%"=="asm" (
+	perl  Configure %PERL_VC% --prefix=%BUILD_OUT%
+) else (
+	perl  Configure %PERL_VC% no-asm --prefix=%BUILD_OUT%
+)
+
+
+@echo call ms\%SSL_DO_BAT%
+call ms\%SSL_DO_BAT%
 nmake -f ms\nt.mak clean
 nmake -f ms\nt.mak
 nmake -f ms\nt.mak install
@@ -105,36 +136,20 @@ nmake -f ms\nt.mak install
 @echo build zlib-1.2.8
 cd /d %ZLIB_SRC%
 nmake -f win32/Makefile.msc clean
-nmake -f win32/Makefile.msc
-
-@echo build libevent-2.1.8-stable
-cd /d %LIBEVENT_SRC%
-set LIBEVENT_MAKEFILE=Makefile.%CURL_MACHINE%
 if "%BUILD_MODE%"=="release" (
-	set LIBEVENT_MAKEFILE=%LIBEVENT_MAKEFILE%.r.nmake
+	nmake -f win32/Makefile.msc mode=release
 ) else (
-	set LIBEVENT_MAKEFILE=%LIBEVENT_MAKEFILE%.d.nmake
+	nmake -f win32/Makefile.msc mode=debug
 )
-nmake OPENSSL_DIR=%BUILD_OUT% -f %LIBEVENT_MAKEFILE%
-@echo copy libevent-2.1.8-stable sdk
-XCOPY /S /Y %LIBEVENT_SRC%\include\*.h %BUILD_OUT%\include
-XCOPY /S /Y %LIBEVENT_SRC%\WIN32-Code\nmake\*.h %BUILD_OUT%\include
-XCOPY /S /Y %LIBEVENT_SRC%\*.lib %BUILD_OUT%\lib
-rem @echo f | XCOPY /Y %BUILD_OUT%\lib\libevent.lib %BUILD_OUT%\lib\libevent-2.1.8.lib
-rem @echo f | XCOPY /Y %BUILD_OUT%\lib\libevent_core.lib %BUILD_OUT%\lib\libevent_core-2.1.8.lib
-rem @echo f | XCOPY /Y %BUILD_OUT%\lib\libevent_extras.lib %BUILD_OUT%\lib\libevent_extras-2.1.8.lib
-rem @echo f | XCOPY /Y %BUILD_OUT%\lib\libevent_openssl.lib %BUILD_OUT%\lib\libevent_openssl-2.1.8.lib
-rem RENAME %BUILD_OUT%\lib\libevent.lib libevent2.1.8.lib
-rem RENAME %BUILD_OUT%\lib\libevent_core.lib libevent_core2.1.8.lib
-rem RENAME %BUILD_OUT%\lib\libevent_extras.lib libevent_extras2.1.8.lib
-rem RENAME %BUILD_OUT%\lib\libevent_openssl.lib libevent_openssl2.1.8.lib
+
+
 
 @echo copy ZLIB sdk
 IF EXIST %CURL_BUILDS% (RD /S /Q %CURL_BUILDS%)
 XCOPY /Y %ZLIB_SRC%\zlib.h %BUILD_OUT%
 XCOPY /Y %ZLIB_SRC%\zconf.h %BUILD_OUT%
 XCOPY /Y %ZLIB_SRC%\zlib.lib %BUILD_OUT%
-XCOPY /Y %BUILD_OUT%\zlib.lib %BUILD_OUT%\lib
+@echo d | XCOPY /Y %BUILD_OUT%\zlib.lib %BUILD_OUT%\lib
 RENAME %BUILD_OUT%\zlib.lib zlib_a.lib
 MOVE /Y %BUILD_OUT%\zlib_a.lib %BUILD_OUT%\lib
 MOVE /Y %BUILD_OUT%\*.h %BUILD_OUT%\include
@@ -162,19 +177,22 @@ nmake install
 
 @echo f | XCOPY /Y %BUILD_OUT%\lib\nghttp2.lib %BUILD_OUT%\lib\nghttp2_static.lib
 
-set IS_DEBUG=no
+set IS_DEBUG=yes
 if "%BUILD_MODE%"=="release" (
-	set IS_DEBUG=yes
+	set IS_DEBUG=no
 )
-@echo build curl-7.55.1  mode=static MACHINE=%CURL_MACHINE% VC=15 WITH_DEVEL=%BUILD_OUT% WITH_SSL=static WITH_ZLIB=static ENABLE_SSPI=no ENABLE_IPV6=yes DEBUG=%IS_DEBUG% WITH_NGHTTP2=static
+@echo build curl-7.55.1  RTLIBCFG=static mode=static MACHINE=%CURL_MACHINE% VC=15 WITH_DEVEL=%BUILD_OUT% WITH_SSL=static WITH_ZLIB=static ENABLE_SSPI=no ENABLE_IPV6=yes DEBUG=%IS_DEBUG% WITH_NGHTTP2=static
 cd /d %CURL_SRC%\winbuild
-nmake /f Makefile.vc mode=static MACHINE=%CURL_MACHINE% VC=15 WITH_DEVEL=%BUILD_OUT% WITH_SSL=static WITH_ZLIB=static ENABLE_SSPI=no ENABLE_IPV6=yes DEBUG=%IS_DEBUG% WITH_NGHTTP2=static
+nmake /f Makefile.vc RTLIBCFG=static mode=static MACHINE=%CURL_MACHINE% VC=15 WITH_DEVEL=%BUILD_OUT% WITH_SSL=static WITH_ZLIB=static ENABLE_SSPI=no ENABLE_IPV6=yes DEBUG=%IS_DEBUG% WITH_NGHTTP2=static
 cd /d %CURL_BUILDS%
 for /f "delims=" %%a in ('dir /ad/b') do (
 cd %CURL_BUILDS%\%%a
 IF EXIST .\bin (
 XCOPY /Y %CURL_BUILDS%\%%a\bin %BUILD_OUT%\bin
 XCOPY /Y %CURL_BUILDS%\%%a\lib %BUILD_OUT%\lib
+if "%BUILD_MODE%"=="debug" (
+	@echo f | XCOPY /Y %BUILD_OUT%\lib\libcurl_a_debug.lib  %BUILD_OUT%\lib\libcurl_a.lib
+)
 XCOPY /S /Y %CURL_BUILDS%\%%a\include\* %BUILD_OUT%\include
 )
 )

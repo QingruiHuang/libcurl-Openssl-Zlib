@@ -1,2 +1,0 @@
-set NASM_PATH=%~dp0nasm-2.13.02
-set PATH=%PATH%;%NASM_PATH%

@@ -10,7 +10,13 @@
 
 namespace cpr {
 namespace util {
+#ifdef max
+#undef max
+#endif // max
 
+#ifdef min
+#undef min
+#endif // min
 Header parseHeader(const std::string& headers) {
     Header header;
     std::vector<std::string> lines;

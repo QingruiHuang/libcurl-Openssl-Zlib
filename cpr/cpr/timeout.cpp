@@ -7,6 +7,13 @@
 
 namespace cpr {
 
+#ifdef max
+#undef max
+#endif // max
+
+#ifdef min
+#undef min
+#endif // min
 long Timeout::Milliseconds() const {
     static_assert(std::is_same<std::chrono::milliseconds, decltype(ms)>::value,
                   "Following casting expects milliseconds.");
