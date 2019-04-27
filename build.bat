@@ -74,7 +74,7 @@ if "%platform%"=="x86" (
 		goto ResetPlatform
 	)
 )
-
+@echo   WITH_ASM=%WITH_ASM%
 if "%WITH_ASM%"=="asm" (
 	if "%platform%"=="x86" (
 		call %ROOT_DIR%asmwin32.bat
@@ -83,6 +83,7 @@ if "%WITH_ASM%"=="asm" (
 	)
 ) else (
 	if "%WITH_ASM%"=="ASM" (
+		set WITH_ASM=asm
 		if "%platform%"=="x86" (
 			call %ROOT_DIR%asmwin32.bat
 		) else (
@@ -92,7 +93,12 @@ if "%WITH_ASM%"=="asm" (
 )
 
 set BUILD_OUT=%ROOT_DIR%libcurlSslZlibCpr_%platform%
-echo %PATH%|findstr /c:"nasm-2.13.02">nul 2>nul&&(set BUILD_OUT=%BUILD_OUT%_asm)||(set BUILD_OUT=%BUILD_OUT%_no_asm)
+rem echo %PATH%|findstr /c:"nasm-2.13.02">nul 2>nul&&(set BUILD_OUT=%BUILD_OUT%_asm)||(set BUILD_OUT=%BUILD_OUT%_no_asm)
+if "%WITH_ASM%"=="asm" (
+	set BUILD_OUT=%BUILD_OUT%_asm
+) else (
+	set BUILD_OUT=%BUILD_OUT%_no_asm
+)
 if "%BUILD_MODE%"=="release" (
 	set BUILD_OUT=%BUILD_OUT%_release
 ) else (
