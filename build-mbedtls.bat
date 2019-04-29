@@ -8,5 +8,3 @@ cmake -DVISUAL_STUDIO=2017 -DENABLE_ZLIB_SUPPORT=ON -DCMAKE_BUILD_TYPE=%CMAKE_BU
 nmake
 nmake install
 DEL /s /q %BUILD_OUT%\*.exe
-rem 为何把zlib的头文件给移动了?
-MOVE /Y %BUILD_OUT%\*.h %BUILD_OUT%\include

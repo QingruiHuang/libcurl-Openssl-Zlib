@@ -110,22 +110,15 @@ call %VC150_HOME%\vcvarsall.bat %platform%
 
 @echo call build-zlib.bat to build zlib1.2.8
 cd %ROOT_DIR%
-rem call build-zlib.bat
-
-
-@echo call build-mbedtls.bat to build mbedtls-2.16.1
-cd %ROOT_DIR%
-call build-mbedtls.bat
+call build-zlib.bat
 
 @echo call build-openssl.bat to build openssl1.1.0j
 cd %ROOT_DIR%
 call build-openssl.bat
 
-
 @echo call build-libevent.bat to build libevent-release-2.1.8-stable
 cd %ROOT_DIR%
-rem call build-libevent.bat
-
+call build-libevent.bat
 
 @echo call build-nghttp2.bat to build nghttp2
 cd %ROOT_DIR%
