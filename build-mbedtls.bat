@@ -1,4 +1,5 @@
-@echo build libevent-2.1.8-stable
+@echo build mbedtls
+set PATH=%PATH%;%BUILD_OUT%
 cd /d %ROOT_DIR%
 IF EXIST %MBEDTLS_BUILD_DIR% (RD /S /Q %MBEDTLS_BUILD_DIR%)
 MKDIR %MBEDTLS_BUILD_DIR% 
@@ -6,3 +7,6 @@ cd /d %MBEDTLS_BUILD_DIR%
 cmake -DVISUAL_STUDIO=2017 -DENABLE_ZLIB_SUPPORT=ON -DCMAKE_BUILD_TYPE=%CMAKE_BUILD_TYPE% -DCMAKE_INSTALL_PREFIX=%BUILD_OUT% -G "NMake Makefiles" %MBEDTLS_SRC%
 nmake
 nmake install
+DEL /s /q %BUILD_OUT%\*.exe
+rem 为何把zlib的头文件给移动了?
+MOVE /Y %BUILD_OUT%\*.h %BUILD_OUT%\include

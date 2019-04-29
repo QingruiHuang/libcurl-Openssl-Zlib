@@ -14,7 +14,7 @@ set ROOT_DIR=%~dp0
 set BUILD_MODE=%1
 set platform=%2
 set WITH_ASM=%3
-set OPENSSL_SRC=%~dp0openssl-1.0.2n
+set OPENSSL_SRC=%~dp0openssl-1.1.0j
 set ZLIB_SRC=%~dp0zlib-1.2.8
 set JANSSON_ROOT=%~dp0jansson-2.12
 set JANSSON_BUILD_DIR=%~dp0jansson-2.12-build
@@ -23,6 +23,8 @@ set NGHTTP2_BUILD_DIR=%~dp0nghttp2-build
 set CURL_SRC=%~dp0curl-7.64.1
 set LIBEVENT_SRC=%~dp0libevent-release-2.1.8-stable
 set LIBEVENT_BUILD_DIR=%~dp0libevent-build
+set MBEDTLS_SRC=%~dp0mbedtls
+set MBEDTLS_BUILD_DIR=%~dp0mbedtls-build
 set CURL_BUILDS=%~dp0curl-7.64.1\builds
 set CPR_ROOT=%~dp0cpr
 set CPR_BUILD_DIR=%~dp0cpr-build
@@ -52,23 +54,18 @@ set CURL_MACHINE=x86
 set CURL_DEBUG=no
 set CMAKE_BUILD_TYPE=Release
 if "%BUILD_MODE%"=="release" (
-	set PERL_VC=VC-WIN32
+@echo   
 ) else (
-	set PERL_VC=debug-VC-WIN32
 	set CURL_DEBUG=yes
 	set CMAKE_BUILD_TYPE=Debug
 )
 
 if "%platform%"=="x86" (
-@echo   
+	set PERL_VC=VC-WIN32
 ) else (
 	if "%platform%"=="amd64" (
 		set CURL_MACHINE=x64
-		if "%BUILD_MODE%"=="release" (
-			set PERL_VC=VC-WIN64A
-		) else (
-			set PERL_VC=debug-VC-WIN64A
-		)
+		set PERL_VC=VC-WIN64A
 	) else (
 		if "%PROCESSOR_ARCHITECTURE%"=="x86" set platform=x86
 		if "%PROCESSOR_ARCHITECTURE%"=="AMD64" set platform=amd64
@@ -93,7 +90,7 @@ if "%WITH_ASM%"=="asm" (
 	) else (set WITH_ASM=no-asm)
 )
 
-set BUILD_OUT=%ROOT_DIR%libcurlSslZlibCpr_%platform%
+set BUILD_OUT=%ROOT_DIR%libcurlSslCpr_%platform%
 rem echo %PATH%|findstr /c:"nasm-2.13.02">nul 2>nul&&(set BUILD_OUT=%BUILD_OUT%_asm)||(set BUILD_OUT=%BUILD_OUT%_no_asm)
 if "%WITH_ASM%"=="asm" (
 	set BUILD_OUT=%BUILD_OUT%_asm
@@ -106,127 +103,41 @@ if "%BUILD_MODE%"=="release" (
 	set BUILD_OUT=%BUILD_OUT%_debug
 )
 @echo BUILD_OUT=%BUILD_OUT%
-IF EXIST %BUILD_OUT% (RD /S /Q %BUILD_OUT%)
+rem IF EXIST %BUILD_OUT% (RD /S /Q %BUILD_OUT%)
 MKDIR %BUILD_OUT% 
+@echo call %VC150_HOME%\vcvarsall.bat %platform%
 call %VC150_HOME%\vcvarsall.bat %platform%
-@echo build openssl-1.0.2n %platform% %PERL_VC% %WITH_ASM%
-cd /d %OPENSSL_SRC%
-set SSL_DO_BAT=do_ms.bat
-if "%platform%"=="x86" (
-	if "%WITH_ASM%"=="asm" (
-		set SSL_DO_BAT=do_nasm.bat
-	)
-) else (
-	if "%WITH_ASM%"=="asm" (
-		set SSL_DO_BAT=do_win64a.bat
-	) else {
-		set SSL_DO_BAT=do_win64i.bat
-	}
-)
-set ASM=nasm
-rem echo %PATH%|findstr /c:"nasm-2.13.02">nul 2>nul&&(perl  Configure %PERL_VC% --prefix=%BUILD_OUT%)||(perl  Configure %PERL_VC% no-asm --prefix=%BUILD_OUT%)
-rem perl  Configure %PERL_VC% no-asm --prefix=%BUILD_OUT%
-rem echo %PATH%|findstr /c:"nasm-2.13.02">nul 2>nul&&(call ms\do_nasm.bat)||(call ms\do_ms.bat)
-if "%WITH_ASM%"=="asm" (
-	perl  Configure %PERL_VC% --prefix=%BUILD_OUT%
-) else (
-	perl  Configure %PERL_VC% no-asm --prefix=%BUILD_OUT%
-)
+
+@echo call build-zlib.bat to build zlib1.2.8
+cd %ROOT_DIR%
+rem call build-zlib.bat
 
 
-@echo call ms\%SSL_DO_BAT%
-call ms\%SSL_DO_BAT%
-nmake -f ms\nt.mak clean
-nmake -f ms\nt.mak
-nmake -f ms\nt.mak install
+@echo call build-mbedtls.bat to build mbedtls-2.16.1
+cd %ROOT_DIR%
+call build-mbedtls.bat
 
-@echo build zlib-1.2.8
-cd /d %ZLIB_SRC%
-nmake -f win32/Makefile.msc clean
-if "%BUILD_MODE%"=="release" (
-	nmake -f win32/Makefile.msc mode=release
-) else (
-	nmake -f win32/Makefile.msc mode=debug
-)
+@echo call build-openssl.bat to build openssl1.1.0j
+cd %ROOT_DIR%
+call build-openssl.bat
 
 
-@echo build libevent-2.1.8-stable
-cd /d %ROOT_DIR%
-IF EXIST %LIBEVENT_BUILD_DIR% (RD /S /Q %LIBEVENT_BUILD_DIR%)
-MKDIR %LIBEVENT_BUILD_DIR% 
-cd /d %LIBEVENT_BUILD_DIR%
-cmake -DVISUAL_STUDIO=2017 -DOPENSSL_DIR=%BUILD_OUT% -DCMAKE_BUILD_TYPE=%CMAKE_BUILD_TYPE% -DCMAKE_INSTALL_PREFIX=%BUILD_OUT% -G "NMake Makefiles" %LIBEVENT_SRC%
-nmake
-nmake install
+@echo call build-libevent.bat to build libevent-release-2.1.8-stable
+cd %ROOT_DIR%
+rem call build-libevent.bat
 
 
-@echo copy ZLIB sdk
+@echo call build-nghttp2.bat to build nghttp2
+cd %ROOT_DIR%
+call build-nghttp2.bat
 
-XCOPY /Y %ZLIB_SRC%\zlib.h %BUILD_OUT%
-XCOPY /Y %ZLIB_SRC%\zconf.h %BUILD_OUT%
-XCOPY /Y %ZLIB_SRC%\zlib.lib %BUILD_OUT%
-@echo d | XCOPY /Y %BUILD_OUT%\zlib.lib %BUILD_OUT%\lib
-RENAME %BUILD_OUT%\zlib.lib zlib_a.lib
-MOVE /Y %BUILD_OUT%\zlib_a.lib %BUILD_OUT%\lib
-MOVE /Y %BUILD_OUT%\*.h %BUILD_OUT%\include
+@echo call build-curl.bat to build curl-7.64.1
+cd %ROOT_DIR%
+call build-curl.bat
 
-rem @echo build jansson-2.12
-rem cd /d %ROOT_DIR%
-rem IF EXIST %JANSSON_BUILD_DIR% (RD /S /Q %JANSSON_BUILD_DIR%)
-rem MKDIR %JANSSON_BUILD_DIR% 
-rem cd /d %JANSSON_BUILD_DIR%
-rem cmake -DVISUAL_STUDIO=2017 -DUSE_SYSTEM_CURL=YES -DBUILD_CPR_TESTS=NO -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=%BUILD_OUT% -G "NMake Makefiles" %JANSSON_ROOT%
-rem nmake
-rem nmake install
-rem @echo f | XCOPY /Y %BUILD_OUT%\lib\jansson_d.lib %BUILD_OUT%\lib\jansson.lib
-rem @echo f | XCOPY /Y %BUILD_OUT%\lib\jansson_d.lib %BUILD_OUT%\lib\jansson-2.12.lib
-
-@echo build nghttp2
-set PATH=%PATH%;%BUILD_OUT%
-cd /d %ROOT_DIR%
-IF EXIST %NGHTTP2_BUILD_DIR% (RD /S /Q %NGHTTP2_BUILD_DIR%)
-MKDIR %NGHTTP2_BUILD_DIR% 
-cd /d %NGHTTP2_BUILD_DIR%
-cmake -D VISUAL_STUDIO=2017 -DCMAKE_BUILD_TYPE=%CMAKE_BUILD_TYPE% -DCMAKE_INSTALL_PREFIX=%BUILD_OUT% -G "NMake Makefiles" %NGHTTP2_SRC%
-nmake
-nmake install
-
-@echo f | XCOPY /Y %BUILD_OUT%\lib\nghttp2.lib %BUILD_OUT%\lib\nghttp2_static.lib
-
-set IS_DEBUG=yes
-if "%BUILD_MODE%"=="release" (
-	set IS_DEBUG=no
-)
-@echo build curl-7.64.1  RTLIBCFG=static mode=static MACHINE=%CURL_MACHINE% VC=15 WITH_DEVEL=%BUILD_OUT% WITH_SSL=static WITH_ZLIB=static ENABLE_SSPI=no ENABLE_IPV6=yes DEBUG=%IS_DEBUG% WITH_NGHTTP2=static
-IF EXIST %CURL_BUILDS% (RD /S /Q %CURL_BUILDS%)
-cd /d %CURL_SRC%\winbuild
-nmake /f Makefile.vc RTLIBCFG=static mode=static MACHINE=%CURL_MACHINE% VC=15 WITH_DEVEL=%BUILD_OUT% WITH_SSL=static WITH_ZLIB=static ENABLE_SSPI=no ENABLE_IPV6=yes DEBUG=%IS_DEBUG% WITH_NGHTTP2=static
-cd /d %CURL_BUILDS%
-for /f "delims=" %%a in ('dir /ad/b') do (
-cd %CURL_BUILDS%\%%a
-IF EXIST .\bin (
-XCOPY /Y %CURL_BUILDS%\%%a\bin %BUILD_OUT%\bin
-XCOPY /Y %CURL_BUILDS%\%%a\lib %BUILD_OUT%\lib
-if "%BUILD_MODE%"=="debug" (
-	@echo f | XCOPY /Y %BUILD_OUT%\lib\libcurl_a_debug.lib  %BUILD_OUT%\lib\libcurl_a.lib
-)
-XCOPY /S /Y %CURL_BUILDS%\%%a\include\* %BUILD_OUT%\include
-)
-)
-
-
-@echo f | XCOPY /Y %BUILD_OUT%\lib\libcurl_a.lib %BUILD_OUT%\lib\libcurl.lib
-
-@echo build cpr
-cd /d %ROOT_DIR%
-IF EXIST %CPR_BUILD_DIR% (RD /S /Q %CPR_BUILD_DIR%)
-MKDIR %CPR_BUILD_DIR% 
-cd /d %CPR_BUILD_DIR%
-cmake -DVISUAL_STUDIO=2017 -DCMAKE_USE_OPENSSL=YES -DUSE_SYSTEM_CURL=YES -DBUILD_CPR_TESTS=NO -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=%BUILD_OUT% -G "NMake Makefiles" %CPR_ROOT%
-nmake
-@echo copy cpr sdk
-XCOPY /S /Y %CPR_ROOT%\include\*.h %BUILD_OUT%\include
-XCOPY /S /Y %CPR_BUILD_DIR%\lib\*.lib %BUILD_OUT%\lib
+@echo call build-cpr.bat to build cpr
+cd %ROOT_DIR%
+call build-cpr.bat
 
 cd %ROOT_DIR%
-explorer %BUILD_OUT%
+rem explorer %BUILD_OUT%

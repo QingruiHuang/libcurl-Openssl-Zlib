@@ -1,4 +1,5 @@
 @echo build libevent-2.1.8-stable
+set PATH=%PATH%;%BUILD_OUT%
 cd /d %ROOT_DIR%
 IF EXIST %LIBEVENT_BUILD_DIR% (RD /S /Q %LIBEVENT_BUILD_DIR%)
 MKDIR %LIBEVENT_BUILD_DIR% 
